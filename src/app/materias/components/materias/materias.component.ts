@@ -28,7 +28,9 @@ export class MateriasComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.idEstudiante = params.get('idEstudiante');
+
+
+      this.idEstudiante = localStorage.getItem("id");
       this.idPrograma = params.get('idPrograma');
       console.log('ID Estudiante:', this.idEstudiante);
       console.log('ID Programa:', this.idPrograma);
@@ -87,7 +89,7 @@ export class MateriasComponent implements OnInit {
         this.materiasSeleccionadas.splice(index, 1);
       }
     }
-  }
+    }
 
   registrarMaterias(): void {
     if (this.materiasSeleccionadas.length === 0) {

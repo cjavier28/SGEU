@@ -3,34 +3,59 @@
     <div class="py-5 mt-3 h-100 row d-flex align-items-center justify-content-center">
 
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-        <h2 class="fs-3 fw-bold text-center text-primary mb-4">Iniciar sesión</h2>
-        <form [formGroup]="formLogin"(ngSubmit)="login()">
+        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center " >
+          <i class="fas fa-university fa-2x text-secundary"></i>
+        </div>
+        <h1 class="fs-3 fw-bold text-center  mb-4 color">Iniciar sesión</h1>
+   
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
           <div class="row gy-2 overflow-hidden">
+            <!-- Email -->
             <div class="col-12">
-              <div data-mdb-input-init class="form-outline mb-4">
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form1Example13">Email</label>
                 <input formControlName="email" type="email" id="form1Example13" class="form-control form-control-lg" />
-                <label class="form-label" for="form1Example13">Email address</label>
+                
+                <!-- Errores -->
+                <div class="text-danger mt-1" *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched">
+                  <small *ngIf="formLogin.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+                  <small *ngIf="formLogin.get('email')?.errors?.['email']">Formato de correo inválido.</small>
+                </div>
               </div>
             </div>
-
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input formControlName="password" type="password" id="form1Example23" class="form-control form-control-lg" />
-              <label class="form-label" for="form1Example23">Password</label>
+        
+            <!-- Password -->
+            <div class="col-12">
+              <div class="form-outline mb-4">
+                <label class="form-label" for="form1Example23">Contraseña</label>
+                <input formControlName="password" type="password" id="form1Example23" class="form-control form-control-lg" />
+        
+                <!-- Errores -->
+                <div class="text-danger mt-1" *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched">
+                  <small *ngIf="formLogin.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+                  <small *ngIf="formLogin.get('password')?.errors?.['minlength']">Debe tener al menos 5 caracteres.</small>
+                </div>
+              </div>
             </div>
-
+        
+            <!-- Botón -->
             <div class="col-12">
               <div class="d-grid my-3">
-                <button  [disabled]="formLogin.invalid" class="btn btn-primary btn-lg" type="submit">Login</button>
+                <button [disabled]="formLogin.invalid" class="colors" type="submit">Login</button>
               </div>
             </div>
-
+        
+            <!-- Registro -->
             <div class="col-12 text-center">
               <div class="d-flex justify-content-center">
-                <p class="mb-0">¿No tiene usuario? <a href="registrarse" class="link-primary fw-bold text-decoration-none">Registrarse</a></p>
+                <p class="mb-0">¿No tiene usuario?
+                  <a href="registrarse" class="link-primary fw-bold text-decoration-none">Registrarse</a>
+                </p>
               </div>
             </div>
           </div>
         </form>
+        
       </div>
     </div>
   </div>

@@ -35,6 +35,14 @@ export class LoginComponent {
    constructor(private loginService: LoginService, private router: Router) {}
 
    login() {
+
+      // ✅ Verifica si el formulario es inválido y marca todos los campos como tocados
+  if (this.formLogin.invalid) {
+    this.formLogin.markAllAsTouched();
+    return;
+  }
+
+  
     if (this.formLogin.valid) {
       const datosLogin: Login = {
         Email: this.formLogin.value.email,

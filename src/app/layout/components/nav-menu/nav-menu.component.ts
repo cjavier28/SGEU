@@ -19,11 +19,12 @@ export class NavMenuComponent implements OnInit{
   constructor(private router: Router) {
 
 
-    if(  localStorage !=undefined){
-      if(localStorage.length>0){
-        this.idEstudiante = localStorage.getItem('id') || ''; // Obtener el idEstudiante desde localStorage
-      }
+    if (typeof window !== 'undefined') {
+      const id = localStorage.getItem('id');  
+      // etc.
     }
+
+
 
   }
 
