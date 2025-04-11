@@ -1,0 +1,37 @@
+<div class="min-vh-100 bg-light">
+  <div class="container py-5 h-100">
+    <div class="py-5 mt-3 h-100 row d-flex align-items-center justify-content-center">
+
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h2 class="fs-3 fw-bold text-center text-primary mb-4">Iniciar sesión</h2>
+        <form [formGroup]="formLogin"(ngSubmit)="login()">
+          <div class="row gy-2 overflow-hidden">
+            <div class="col-12">
+              <div data-mdb-input-init class="form-outline mb-4">
+                <input formControlName="email" type="email" id="form1Example13" class="form-control form-control-lg" />
+                <label class="form-label" for="form1Example13">Email address</label>
+              </div>
+            </div>
+
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input formControlName="password" type="password" id="form1Example23" class="form-control form-control-lg" />
+              <label class="form-label" for="form1Example23">Password</label>
+            </div>
+
+            <div class="col-12">
+              <div class="d-grid my-3">
+                <button  [disabled]="formLogin.invalid" class="btn btn-primary btn-lg" type="submit">Login</button>
+              </div>
+            </div>
+
+            <div class="col-12 text-center">
+              <div class="d-flex justify-content-center">
+                <p class="mb-0">¿No tiene usuario? <a href="registrarse" class="link-primary fw-bold text-decoration-none">Registrarse</a></p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

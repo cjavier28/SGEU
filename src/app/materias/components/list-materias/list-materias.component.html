@@ -1,0 +1,47 @@
+<div class="container ">
+
+  <div class="container d-flex text-center  justify-content-center col-12 textgeneral">
+
+    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center m-2" style="width: 60px; height: 60px;">
+      <i class="fas fa-university fa-2x text-secundary"></i>
+    </div>
+    <h1 class="textgeneral m-2">MATERIAS INSCRITAS</h1>
+  </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+
+      <button class="btn btn-danger" (click)="quitarMateria()" [disabled]="!selectedMateria">Eliminar Materia</button>
+    </div>
+    <div class="card-body mt-3">
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        @for(materia of materias; track $index) {
+          <div class="col">
+            <div class="card shadow-lg h-100">
+              <div class="card-body d-flex flex-column text-center">
+                <h2 class="card-title bg-black br-2 text-white textgeneral">{{ materia.nombre }}</h2>
+                <p class="card-text">ID de Materia: {{ materia.idMateria }}</p>
+                <p class="card-text">Créditos: {{ materia.numeroCreditos }}</p>
+                <div>
+                  <h3>Profesor:</h3>
+                  <p>Nombre: {{ materia.nombreProfesor }}</p>
+                  <p>Email: <a href="mailto:{{ materia.emailProfesor }}">{{ materia.emailProfesor }}</a></p>
+                </div>
+
+                <div class="form-check form-check-lg">
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="materia_{{ materia.idMateria }}"
+                        [checked]="materia.idMateria === selectedMateria"
+                        (change)="onMateriaSelect(materia.idMateria)">
+                  <label class="form-check-label" for="materia_{{ materia.idMateria }}">
+                    Seleccionar
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>

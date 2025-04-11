@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="page-content">
+      <div class="container-fluid">
+        <div class="container d-flex text-center  justify-content-center col-12 textgeneral">
+          <h1 class="textgeneral">ESTUDIANTES</h1>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <div class="card">
+
+              <div class="card">
+                <div class="table-responsive ">
+                  <table class="table table-editable table-nowrap align-middle table-edits">
+                    <thead>
+                      <tr>
+                        <th class="text-center text-white bg-black">Nombre Estudiantes</th>
+                        <th class="text-center text-white bg-black">Email</th>
+                        <th class="text-center text-white bg-black">Programa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @for(estudiante of estudiantes; track $index ){
+                        <tr>
+                            <td>{{ estudiante.nombreEstudiante }}</td>
+                            <td>{{ estudiante.email }}</td>
+                            <td>{{ estudiante.nombrePrograma }}</td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

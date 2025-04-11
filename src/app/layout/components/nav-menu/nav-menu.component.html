@@ -1,0 +1,37 @@
+
+<div class="bg-margen">
+  <div class="d-flex align-items-center bg-black">
+    <div class="w-7 text-center bg-black">
+      <div class="m-2 ">
+        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mb-2 text-center" style="width: 60px; height: 60px;">
+          <i class="fas fa-university fa-2x text-secundary m-3"></i>
+        </div>
+        <div class="">
+          <b><p class="text-white">Gestion Estudiantes</p></b>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-expand-lg ">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item bg-black">
+            <a class="nav-link text-white fw-bold" href="/materias">Consultar materias</a>
+          </li>
+          <li class="nav-item bg-black">
+            <a class="nav-link text-white fw-bold" href="/estudiantes">Consultar estudiantes del programa</a>
+          </li>
+          <li class="nav-item bg-black ">
+            <a class="nav-link text-white fw-bold" [routerLink]="['/programas', idEstudiante]">Consultar programas</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="d-flex align-items-center ms-auto me-3 text-white">
+      @if(userName){<span class="me-2">{{ userName }}</span>}
+      <button (click)="logout()" class="colorrs ms-2">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+
+
